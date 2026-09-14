@@ -2,7 +2,7 @@
 
 ## Lab complet : 
 
-![01 - Lab en entier](https://hackmd.io/_uploads/Hy3TP8SKze.png)
+<img width="2946" height="1534" alt="01 - Lab en entier" src="https://github.com/user-attachments/assets/7c9b892d-2366-4000-b737-498817d01313" />
 
 ## R1 : 
 
