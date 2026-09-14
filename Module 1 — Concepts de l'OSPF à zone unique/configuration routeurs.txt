@@ -1,0 +1,89 @@
+R1 :
+
+
+conf t
+hostname R1
+
+interface fa0/0
+ip add 192.168.1.1 255.255.255.252
+no shut
+exit
+
+interface fa1/0
+ip add 192.168.3.1 255.255.255.252
+no shut
+exit
+
+interface loopback 0
+ip address 1.1.1.1 255.255.255.255
+exit
+
+router ospf 1
+router-id 1.1.1.1
+network 192.168.1.0 0.0.0.3 area 0
+network 192.168.3.0 0.0.0.3 area 0
+network 1.1.1.1 0.0.0.0 area 0
+exit
+exit
+debug ip ospf adj
+
+interface fa0/0
+bandwidth 10000
+exit
+
+router ospf 1 
+auto-cost reference-bandwidth 1000
+exit
+
+R2 : 
+
+conf t
+hostname R2
+
+interface fa0/0
+ip add 192.168.1.2 255.255.255.252
+no shut
+exit
+
+interface fa2/0
+ip add 192.168.2.1 255.255.255.252
+no shut
+
+interface loopback 0 
+ip address 2.2.2.2 255.255.255.255 
+exit 
+
+router ospf 1 
+router-id 2.2.2.2 
+network 192.168.1.0 0.0.0.3 area 0 
+network 192.168.2.0 0.0.0.3 area 0 
+network 2.2.2.2 0.0.0.0 area 0 
+exit 
+debug ip ospf adj
+
+R3 : 
+
+conf t
+hostname R3
+
+interface fa1/0
+ip add 192.168.3.2 255.255.255.252
+no shut
+exit
+
+interface fa2/0
+ip add 192.168.2.2 255.255.255.252
+no shut
+exit
+
+interface loopback 0 
+ip address 3.3.3.3 255.255.255.255 
+exit 
+
+router ospf 1 
+router-id 3.3.3.3 
+network 192.168.3.0 0.0.0.3 area 0 
+network 192.168.2.0 0.0.0.3 area 0 
+network 3.3.3.3 0.0.0.0 area 0 
+exit 
+debug ip ospf adj
