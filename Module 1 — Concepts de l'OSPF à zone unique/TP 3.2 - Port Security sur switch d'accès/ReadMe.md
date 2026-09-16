@@ -7,7 +7,7 @@ title: TP 3.2 - Port Security sur switch d'accès - Romain Jaquet
 
 ## Lab complet : 
 
-![01 - lab complet](https://hackmd.io/_uploads/ry-zKAPFzg.png)
+<img width="1182" height="322" alt="01 - lab complet" src="https://github.com/user-attachments/assets/1b704e99-2451-442c-9fa6-d9791855f4b2" />
 
 ## R1 : 
 
@@ -50,4 +50,4 @@ Sur SW1 :
 
 Pour pouvoir voir un chiffre dans "Total MAC Addresses", il faut que le PC ait envoyé au moins un paquet vers le switch, pour cela il suffit de faire un ping vers la passerelle.
 
-![02 - commande pour la vérification](https://hackmd.io/_uploads/BJLGKCwYfe.png)
+<img width="1244" height="1180" alt="02 - commande pour la vérification" src="https://github.com/user-attachments/assets/73e4e50f-9f55-420c-b946-e5374ed32782" />
