@@ -7,7 +7,7 @@ title: 'TP 3.3 - DHCP Snooping : mitigation d''un serveur DHCP pirate - Romain J
 
 ## Lab complet : 
 
-![01 - lab complet](https://hackmd.io/_uploads/Syze81dtzx.png)
+<img width="1254" height="860" alt="01 - lab complet" src="https://github.com/user-attachments/assets/e3b59ab0-74d5-46f1-8eb4-309101c65699" />
 
 ## SW1 : 
 
@@ -79,14 +79,14 @@ ip dhcp
 ### show ip dhcp snooping
 Sur SW1 : 
 
-![02 - show ip dhcp snooping](https://hackmd.io/_uploads/Bk6xIk_YMx.png)
+<img width="1232" height="1650" alt="02 - show ip dhcp snooping" src="https://github.com/user-attachments/assets/f6908db2-0183-45ae-9803-1d47e11e15f8" />
 
 ### show ip dhcp snooping binding
 Sur SW1 : 
 
-![03 - show ip dhcp snooping binding](https://hackmd.io/_uploads/rySX81uFfg.png)
+<img width="1200" height="288" alt="03 - show ip dhcp snooping binding" src="https://github.com/user-attachments/assets/e4dfebfa-3523-4280-9bfe-de487f0487ec" />
 
 ### ip dhcp : 
 Sur PC1 : 
 
-![04 - ip dhcp](https://hackmd.io/_uploads/HkLGL1uFfe.png)
+<img width="1196" height="96" alt="04 - ip dhcp" src="https://github.com/user-attachments/assets/f0c9a115-2e39-4309-9d6a-9d06e85bf470" />
