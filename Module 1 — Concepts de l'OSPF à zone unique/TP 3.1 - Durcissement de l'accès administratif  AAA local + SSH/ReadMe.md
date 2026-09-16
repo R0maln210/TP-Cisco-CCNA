@@ -7,7 +7,7 @@ title: 'TP 3.1 — Durcissement de l''accès administratif : AAA local + SSH - R
 
 ## Lab complet : 
 
-![01 - lab complet](https://hackmd.io/_uploads/BkOtu6vYGe.png)
+<img width="550" height="278" alt="01 - lab complet" src="https://github.com/user-attachments/assets/9a3c88ed-d151-4fff-b9e4-434cfa6e9df1" />
 
 ## R1 : 
 
@@ -46,7 +46,7 @@ ping 192.168.1.1
 
 ### show ip ssh
 
-![02 - show ip ssh](https://hackmd.io/_uploads/Bk9u_aDtze.png)
+<img width="1236" height="826" alt="02 - show ip ssh" src="https://github.com/user-attachments/assets/6d4c2210-3507-40e8-9bed-131bb6d875e5" />
 
 ### show users
 
@@ -66,8 +66,8 @@ no shutdown
 exit
 ```
 
-![03 - show users](https://hackmd.io/_uploads/S1cPdTPKze.png)
+<img width="1242" height="1654" alt="03 - show users" src="https://github.com/user-attachments/assets/b72e7da3-bbef-4696-b43f-e9a20d8ca354" />
 
 ### ssh -l SATOMIT 192.168.1.1
 
-![04 - ssh SATOMIT](https://hackmd.io/_uploads/rJWO_pvYzl.png)
+<img width="1232" height="1024" alt="04 - ssh SATOMIT" src="https://github.com/user-attachments/assets/c50b2250-0467-42ca-87ad-173c21445d36" />
