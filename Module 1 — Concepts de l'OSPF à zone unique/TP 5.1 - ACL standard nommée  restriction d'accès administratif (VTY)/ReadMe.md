@@ -7,7 +7,7 @@ title: 'TP 5.1 - ACL standard nommée : restriction d''accès administratif (VTY
 
 ## Lab complet : 
 
-![01 - lab complet](https://hackmd.io/_uploads/BySBFZuYMe.png)
+<img width="546" height="674" alt="01 - lab complet" src="https://github.com/user-attachments/assets/fafecabf-f8f5-4815-95e6-231668ce279d" />
 
 ## R1 : 
 
@@ -63,12 +63,12 @@ ip 192.168.2.20/24 192.168.2.254
 ### show access-lists ADMIN-ONLY
 Sur R1 : 
 
-![02 - show access-list](https://hackmd.io/_uploads/r1qIY-_Yfl.png)
+<img width="594" height="150" alt="02 - show access-list" src="https://github.com/user-attachments/assets/c90f4cc3-487e-47dc-a9a1-d16ee2d0e542" />
 
 ### show ip interface | include line protocol
 Sur R1 : 
 
-![03 - show ip interface brief](https://hackmd.io/_uploads/SkWwF-utzx.png)
+<img width="960" height="596" alt="03 - show ip interface brief" src="https://github.com/user-attachments/assets/1e4379f4-832a-4c18-a08f-9ea38c1b0245" />
 
 ### ssh -l ADMIN 192.168.1.254
 ### ssh -l ADMIN 192.168.2.254
@@ -104,5 +104,4 @@ no shutdown
 exit
 ip route 0.0.0.0 0.0.0.0 192.168.2.254
 ```
-
-![04 - ssh -l ADMIN ](https://hackmd.io/_uploads/BkoPtWOYfg.png)
+<img width="1228" height="1684" alt="04 - ssh -l ADMIN " src="https://github.com/user-attachments/assets/84f3857d-4b9f-49ac-b734-807654757155" />
