@@ -7,7 +7,7 @@ title: TP Final CCNA - Romain Jaquet
 
 ## Lab complet : 
 
-![01 - lab complet](https://hackmd.io/_uploads/Bk1S5wcYMl.png)
+<img width="741" height="745" alt="01 - lab complet" src="https://github.com/user-attachments/assets/ac985cf2-e1db-40f1-ae90-ead5e3b55957" />
 
 ## Phase 1 : Routage dynamique OSPF
 
@@ -241,27 +241,27 @@ save
 ### show ip ospf neighbor 
 sur les 3 routeurs
 
-![01 - show ip ospf neighbor](https://hackmd.io/_uploads/BkwTsP9YMl.png)
+<img width="1733" height="397" alt="01 - show ip ospf neighbor" src="https://github.com/user-attachments/assets/93a890bc-dcbb-4f31-b501-64dd9599a6bf" />
 
 ### show ip route ospf 
 sur R-FORMATION et R-ADMIN
 
-![02 - show ip route ospf](https://hackmd.io/_uploads/Syo1nwqYMe.png)
+<img width="1160" height="556" alt="02 - show ip route ospf" src="https://github.com/user-attachments/assets/80cd3993-6c1f-4d1f-9b12-4ce86f5208d8" />
 
 ### show ip protocols | section Passive 
 sur R-FORMATION --> fa0/0.10 et fa0/0.99, R-ADMIN --> fa0/0 et fa 1/0
 
-![03 - show ip protocols section Passive](https://hackmd.io/_uploads/S1zehP9Kzx.png)
+<img width="1155" height="95" alt="03 - show ip protocols section Passive" src="https://github.com/user-attachments/assets/ae7bdee5-3102-4080-9c42-0d74280f6f6e" />
 
 ### show ip ospf interface fax/x | include authentication 
 sur R-EDGE --> fa1/0 et fa2/0, R-FORMATION --> fa1/0, R-ADMIN --> fa2/0
 
-![04 - show interface include authentication](https://hackmd.io/_uploads/BJPx3w5tzl.png)
+<img width="1742" height="93" alt="04 - show interface include authentication" src="https://github.com/user-attachments/assets/b6b1c573-c777-4228-a821-40bf74c1a56c" />
 
 ### ping 
 entre PC-ADM et PC-INF
 
-![05 - ping entre admin et info](https://hackmd.io/_uploads/S1Gb3PqKGe.png)
+<img width="1157" height="142" alt="05 - ping entre admin et info" src="https://github.com/user-attachments/assets/cdddd568-2db5-4a61-8ca5-494b76100b28" />
 
 ## Phase 2 : Sécurisation des accès et de la couche 2
 
@@ -358,22 +358,22 @@ do wr
 ### show ip ssh
 sur les 3 routeurs
 
-![01 - show ip ssh](https://hackmd.io/_uploads/Syl8pO9Kzl.png)
+<img width="1737" height="184" alt="01 - show ip ssh" src="https://github.com/user-attachments/assets/c6364b76-1b61-45f7-b369-8b1951aa9414" />
 
 ### show running-config | section line vty
 sur les 3 routeurs
 
-![02 - show running config section line vty](https://hackmd.io/_uploads/HyLUaOcKGx.png)
+<img width="1741" height="110" alt="02 - show running config section line vty" src="https://github.com/user-attachments/assets/a4b7d135-f0b8-4b39-b56a-382b37164c94" />
 
 ### show port-security interface e0/x
 sur sw-formation sur les interface e0/0 et e0/1
 
-![03 - show port security interface](https://hackmd.io/_uploads/SkoIa_qKfe.png)
+<img width="577" height="494" alt="03 - show port security interface" src="https://github.com/user-attachments/assets/30e65e06-28a1-4474-8363-e3b1dc2c51d2" />
 
 ### show ip dhcp snooping
 sur sw-formation
 
-![04 - show ip dhcp snooping](https://hackmd.io/_uploads/rkZD6u9KMx.png)
+<img width="576" height="391" alt="04 - show ip dhcp snooping" src="https://github.com/user-attachments/assets/e8bdfd5c-44f9-40e5-91a6-588d3e0749a3" />
 
 ## Phase 3 : Filtrage réseau par ACL
 
@@ -452,12 +452,12 @@ sur PC-INF
 ### ping 10.0.0.50
 sur PC-INV
 
-![01 - ping depuis pc inv](https://hackmd.io/_uploads/rywU8YqKGl.png)
+<img width="574" height="388" alt="01 - ping depuis pc inv" src="https://github.com/user-attachments/assets/5d8f1e53-d073-474a-a9ba-55b75949ce5f" />
 
 ### show ip access-lists
 sur R-FORMATION
 
-![02 - show ip access-lists](https://hackmd.io/_uploads/S1pU8t9Fzx.png)
+<img width="577" height="199" alt="02 - show ip access-lists" src="https://github.com/user-attachments/assets/54f60969-f6fd-4a6c-be23-8947fcfd660a" />
 
 ### Explication écrite du diagnostic et de la correction de l'ACL RDP mal placée 
 
@@ -505,12 +505,12 @@ do wr
 ### show ip nat translations
 --> on ne voit que le static parce que tout le dynamique ne fonctionne pas depuis n'importe quel appareil
 
-![01 - show ip nat translation](https://hackmd.io/_uploads/SyGR_s5FMl.png)
+<img width="578" height="78" alt="01 - show ip nat translation" src="https://github.com/user-attachments/assets/782987c0-c799-4995-b9c5-e9f5ec5fcb21" />
 
 ### show ip nat statistics
 --> pareil que pour la commande précédente
 
-![02 - show ip nat statistics](https://hackmd.io/_uploads/ByLJFicYze.png)
+<img width="579" height="317" alt="02 - show ip nat statistics" src="https://github.com/user-attachments/assets/c421f41c-847e-4a8c-b940-78191551df85" />
 
 ## Phase 5 : Audit final, incident imposé et documentation (transversal)
 
