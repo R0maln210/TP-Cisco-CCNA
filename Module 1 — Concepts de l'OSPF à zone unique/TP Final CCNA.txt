@@ -1,0 +1,437 @@
+PHASE 1 : Routage dynamique OSPF
+
+R-EDGE : 
+
+en
+conf t
+hostname R-EDGE
+
+interface fa0/0
+ip add 203.0.113.2 255.255.255.252
+no shutdown
+exit
+
+interface fa1/0
+ip add 10.0.12.1 255.255.255.252
+no shutdown
+exit
+
+interface fa2/0
+ip add 10.0.13.1 255.255.255.252
+no shutdown
+exit
+
+interface loopback 0
+ip address 1.1.1.1 255.255.255.255
+exit
+
+ip route 0.0.0.0 0.0.0.0 203.0.113.1
+
+router ospf 1
+router-id 1.1.1.1
+network 10.0.12.0 0.0.0.3 area 0
+network 10.0.13.0 0.0.0.3 area 0
+network 1.1.1.1 0.0.0.0 area 0
+default-information originate
+exit
+
+interface fa1/0
+ip ospf message-digest-key 1 md5 pass123
+ip ospf authentication message-digest
+exit
+
+interface fa2/0
+ip ospf message-digest-key 1 md5 pass123
+ip ospf authentication message-digest
+exit
+
+wr
+
+R-FORMATION : 
+
+en
+conf t
+hostname R-FORMATION
+
+interface fa1/0
+ip add 10.0.12.2 255.255.255.252
+no shutdown
+exit
+
+interface fa0/0
+no shutdown
+exit
+
+interface fa0/0.10
+encapsulation dot1Q 10
+ip add 192.168.10.1 255.255.255.0
+no shutdown
+exit
+
+interface fa0/0.99
+encapsulation dot1Q 99
+ip add 192.168.99.1 255.255.255.0 
+no shutdown
+exit
+
+interface loopback 0
+ip address 2.2.2.2 255.255.255.255
+exit
+
+router ospf 1
+router-id 2.2.2.2
+network 10.0.12.0 0.0.0.3 area 0
+network 192.168.10.0 0.0.0.255 area 0
+network 192.168.99.0 0.0.0.255 area 0
+network 2.2.2.2 0.0.0.0 area 0
+passive-interface fa0/0.10
+passive-interface fa0/0.99
+exit
+
+interface fa1/0
+ip ospf message-digest-key 1 md5 pass123
+ip ospf authentication message-digest
+exit
+
+wr
+
+R-ADMIN : 
+
+en
+conf t
+hostname R-ADMIN
+
+interface fa0/0
+ip add 192.168.20.1 255.255.255.0
+no shutdown
+exit
+
+interface fa1/0
+ip add 10.0.0.1 255.255.255.0
+no shutdown
+exit
+
+interface fa2/0
+ip add 10.0.13.2 255.255.255.252
+no shutdown
+exit
+
+interface loopback 0
+ip address 3.3.3.3 255.255.255.255
+exit
+
+router ospf 1
+router-id 3.3.3.3
+network 10.0.13.0 0.0.0.3 area 0
+network 192.168.20.0 0.0.0.255 area 0
+network 10.0.0.0 0.0.0.255 area 0
+network 3.3.3.3 0.0.0.0 area 0
+passive-interface fa0/0
+passive-interface fa1/0
+exit
+
+interface fa2/0
+ip ospf message-digest-key 1 md5 pass123
+ip ospf authentication message-digest
+exit
+
+wr
+
+SERVER-WEB-PAIE : 
+
+en
+conf t
+hostname SERVER-WEB-PAIE
+
+no ip routing
+
+interface e0/0
+no switchport 
+ip address 10.0.0.50 255.255.255.0
+no shutdown
+exit
+
+ip default-gateway 10.0.0.1
+
+wr
+
+SW-FORMATION : 
+
+en
+conf t
+hostname SW-FORMATION
+
+vlan 10
+name FORMATION
+exit
+
+vlan 99
+name INVITES
+exit
+
+interface e0/0
+switchport trunk encapsulation dot1q
+switchport mode trunk
+no shutdown
+exit
+
+interface e0/1
+switchport mode access
+switchport access vlan 10
+no shutdown
+exit
+
+interface e0/2
+switchport mode access
+switchport access vlan 99
+no shutdown
+exit
+
+wr
+
+PC-ADMINISTRATION : 
+
+ip 192.168.20.10/24 192.168.20.1
+set pcname PC-ADM
+save
+
+PC-INFO : 
+
+ip 192.168.10.10/24 192.168.10.1
+set pcname PC-INF
+save
+
+PC-INVITES : 
+
+ip 192.168.99.10/24 192.168.99.1
+set pcname PC-INV
+save
+
+COMMANDES POUR VALIDER POUR LA PHASE 1 : 
+
+show ip ospf neighbor (sur les 3 routeurs)
+show ip route ospf (sur R-FORMATION et R-ADMIN)
+show ip protocols | section Passive (sur R-FORMATION --> fa0/0.10 et fa0/0.99, R-ADMIN --> fa0/0 et fa 1/0)
+show ip ospf interface fax/x | include authentication (sur R-EDGE --> fa1/0 et fa2/0, R-FORMATION --> fa1/0, R-ADMIN --> fa2/0)
+ping (entre PC-ADM et PC-INF)
+
+
+
+
+
+
+
+
+PHASE 2 : SECURISATION DES ACCES ET DE LA COUCHE 2
+
+R-EDGE :
+
+conf t 
+
+ip domain-name satom.local
+username admin-tech privilege 15 secret Admin123
+
+crypto key generate rsa modulus 2048
+ip ssh version 2
+
+line vty 0 4 
+login local 
+transport input ssh
+exec-timeout 5 0
+exit
+
+do wr
+
+R-FORMATION :
+
+conf t 
+
+ip domain-name satom.local
+username admin-tech privilege 15 secret Admin123
+
+crypto key generate rsa modulus 2048
+ip ssh version 2
+
+line vty 0 4 
+login local 
+transport input ssh
+exec-timeout 5 0
+exit
+
+do wr
+
+R-ADMIN :
+
+conf t 
+
+ip domain-name satom.local
+username admin-tech privilege 15 secret Admin123
+
+crypto key generate rsa modulus 2048
+ip ssh version 2
+
+line vty 0 4 
+login local 
+transport input ssh
+exec-timeout 5 0
+exit
+
+do wr
+
+SW-FORMATION : 
+
+conf t
+
+interface e0/1
+switchport mode access
+switchport access vlan 10
+switchport port-security
+switchport port-security maximum 1
+switchport port-security violation shutdown
+switchport port-security mac-address sticky
+no shutdown
+exit
+
+ip dhcp snooping
+ip dhcp snooping vlan 10
+no ip dhcp snooping information option
+
+interface e0/0
+ip dhcp snooping trust
+exit
+
+do wr
+
+COMMANDES POUR VALIDER POUR LA PHASE 2 :
+
+show ip ssh
+sur les 3 routeurs
+
+show users
+sur les 3 routeurs
+
+show port-security interface e0/x
+sur sw-formation sur les interface e0/0 et e0/1
+
+show ip dhcp snooping
+sur sw-formation
+
+
+
+
+PHASE 3 : FILTRAGE RESEAU PAR ACL
+
+R-EDGE : 
+
+conf t
+
+ip access-list standard ADMIN-ONLY-SSH
+permit host 192.168.20.10
+deny any log
+exit
+
+line vty 0 4
+access-class ADMIN-ONLY-SSH in
+exit
+
+do wr
+
+R-FORMATION : 
+
+conf t
+
+ip access-list standard ADMIN-ONLY-SSH
+permit host 192.168.20.10
+deny any log
+exit
+
+line vty 0 4
+access-class ADMIN-ONLY-SSH in
+exit
+
+ip access-list extended INVITES-RESTRICTIONS
+deny ip 192.168.99.0 0.0.0.255 host 10.0.0.50
+permit udp 192.168.99.0 0.0.0.255 any eq domain
+permit tcp 192.168.99.0 0.0.0.255 any eq domain
+permit tcp 192.168.99.0 0.0.0.255 any eq www
+permit tcp 192.168.99.0 0.0.0.255 any eq 443
+deny ip 192.168.99.0 0.0.0.255 any log
+exit
+
+interface fa0/0.99
+ip access-group INVITES-RESTRICTIONS in
+exit
+
+do wr
+
+R-ADMIN : 
+
+conf t
+
+ip access-list standard ADMIN-ONLY-SSH
+permit host 192.168.20.10
+deny any log
+exit
+
+line vty 0 4
+access-class ADMIN-ONLY-SSH in
+exit
+
+do wr
+
+COMMANDES POUR VERIFIER LA PHASE 3 : 
+
+show ip access-lists
+sur R-FORMATION
+
+ssh -l admin-tech 192.168.10.1
+sur PC-INF
+--> la commande ne fonctionne pas sur les vpc
+
+ping 10.0.0.50
+sur PC-INV
+
+
+
+
+
+
+
+
+
+PHASE 4 : CONNECTIVITE INTERNET ET NAT 
+
+
+R-EDGE : 
+
+ip nat inside source static 10.0.0.50 203.0.113.10
+
+ip access-list standard PAT-NETWORKS
+permit 192.168.0.0 0.0.255.255
+permit 10.0.0.0 0.255.255.255
+exit
+
+ip nat inside source list PAT-NETWORKS interface fa0/0 overload
+
+interface fa1/0
+ip nat inside
+exit
+
+interface fa2/0
+ip nat inside
+exit
+
+interface fa0/0
+ip nat outside
+exit
+
+do wr
+
+
+COMMANDES POUR VERIFIER LA PHASE 4 : 
+
+show ip nat translations
+--> on ne voit que le static parce que tout le dynamique ne fonctionne pas depuis n'importe quel appareil
+
+show ip nat statistics
+--> pareil que pour la commande précédente
