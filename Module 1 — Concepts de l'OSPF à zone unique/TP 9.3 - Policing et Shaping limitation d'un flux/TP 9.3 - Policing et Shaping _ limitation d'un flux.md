@@ -7,7 +7,7 @@ title: 'TP 9.3 - Policing et Shaping : limitation d''un flux'
 
 ## Lab complet : 
 
-![01 - lab complet](https://hackmd.io/_uploads/S11wth15Ge.png)
+<img width="1848" height="1218" alt="01 - lab complet" src="https://github.com/user-attachments/assets/aef53db4-80a3-40d7-a8de-0931480e5919" />
 
 ## R1 : 
 
@@ -30,4 +30,4 @@ service-policy input LIMITATION-BACKUP
 
 ### show policy-map interface fa3/0
 
-![02 - policy-map interface](https://hackmd.io/_uploads/Bkg_cny5fl.png)
+<img width="1232" height="1116" alt="02 - policy-map interface" src="https://github.com/user-attachments/assets/da9815dc-4da6-44cb-bf5b-d13c67371a3f" />
