@@ -7,7 +7,7 @@ title: TP 9.1 - Classification et marquage du trafic (MQC)
 
 ## Lab complet : 
 
-![image](https://hackmd.io/_uploads/H1DQg219fx.png)
+<img width="1878" height="1024" alt="01 - lab complet" src="https://github.com/user-attachments/assets/58af0950-9c80-4451-a9b4-b868c41eb807" />
 
 ## R1 : 
 
@@ -71,6 +71,8 @@ save
 
 ### show policy-map interface fa1/0
 
-![02 - show policy map interface](https://hackmd.io/_uploads/H16cl315fl.png)
+<img width="1236" height="1084" alt="02 - show policy map interface" src="https://github.com/user-attachments/assets/d69b58cc-e8de-4255-b168-fbcc5548b164" />
 
-### ![03 - show class-map](https://hackmd.io/_uploads/BkEox2JqMg.png)
+### show class-map
+
+<img width="1234" height="354" alt="03 - show class-map" src="https://github.com/user-attachments/assets/889657fb-dbe7-44b3-ae9f-c6f150303f3c" />
