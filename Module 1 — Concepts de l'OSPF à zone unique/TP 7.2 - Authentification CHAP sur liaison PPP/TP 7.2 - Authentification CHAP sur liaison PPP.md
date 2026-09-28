@@ -7,7 +7,7 @@ title: TP 7.2 - Authentification CHAP sur liaison PPP
 
 ## Lab complet : 
 
-![01 - lab complet](https://hackmd.io/_uploads/SyhG7D0Kfg.png)
+<img width="578" height="214" alt="01 - lab complet" src="https://github.com/user-attachments/assets/927c890e-5156-44a8-8e78-2121bc123e0e" />
 
 ## R1 : 
 
@@ -44,5 +44,4 @@ do wr
 ### debug ppp authentication
 ### show ppp all
 
-![02 - show ppp all](https://hackmd.io/_uploads/rkdEQw0Yzg.png)
-
+<img width="2468" height="284" alt="02 - show ppp all" src="https://github.com/user-attachments/assets/15fc7662-e7de-49da-b8f9-7cc7cdd3c532" />
