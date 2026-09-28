@@ -5,7 +5,7 @@ title: TP 8.1 - Tunnel GRE simple (sans chiffrement)
 
 # TP 8.1 - Tunnel GRE simple (sans chiffrement)
 
-![01 - lab complet](https://hackmd.io/_uploads/Hy7ID50tGx.png)
+<img width="498" height="220" alt="01 - lab complet" src="https://github.com/user-attachments/assets/6d72352e-ebe9-4ae4-bd1f-851e355098ee" />
 
 ## R1 : 
 
@@ -62,8 +62,8 @@ wr
 
 ### show interfaces tunnel 0
 
-![02 - show interfaces tunnel 0](https://hackmd.io/_uploads/rJ9RPcCYGl.png)
+<img width="1232" height="1244" alt="02 - show interfaces tunnel 0" src="https://github.com/user-attachments/assets/a8a08e06-6dbe-49e8-befe-c38e56c930b6" />
 
 ### ping 
 
-![03 - ping](https://hackmd.io/_uploads/r1mxdcAtfe.png)
+<img width="2490" height="412" alt="03 - ping" src="https://github.com/user-attachments/assets/3fe46d19-0efb-4236-9c22-41dca5243b68" />
